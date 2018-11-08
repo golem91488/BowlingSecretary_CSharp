@@ -4,14 +4,16 @@ using BowlingSecretary.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BowlingSecretary.Migrations
 {
     [DbContext(typeof(BowlingSecretaryContext))]
-    partial class BowlingSecretaryContextModelSnapshot : ModelSnapshot
+    [Migration("20181108172618_GameScores")]
+    partial class GameScores
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

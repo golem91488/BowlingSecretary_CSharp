@@ -4,14 +4,16 @@ using BowlingSecretary.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BowlingSecretary.Migrations
 {
     [DbContext(typeof(BowlingSecretaryContext))]
-    partial class BowlingSecretaryContextModelSnapshot : ModelSnapshot
+    [Migration("20181108171353_Bowler")]
+    partial class Bowler
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -40,62 +42,6 @@ namespace BowlingSecretary.Migrations
                     b.HasIndex("TeamID");
 
                     b.ToTable("Bowler");
-                });
-
-            modelBuilder.Entity("BowlingSecretary.Models.BowlerScore", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("BowlerID");
-
-                    b.Property<int?>("GameID");
-
-                    b.Property<int>("Handicap");
-
-                    b.Property<int>("Score");
-
-                    b.Property<int?>("TeamID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("BowlerID");
-
-                    b.HasIndex("GameID");
-
-                    b.HasIndex("TeamID");
-
-                    b.ToTable("BowlerScore");
-                });
-
-            modelBuilder.Entity("BowlingSecretary.Models.Game", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("GameNumber");
-
-                    b.Property<bool>("IsPositionRound");
-
-                    b.Property<bool>("IsProcessed");
-
-                    b.Property<int>("LaneSet");
-
-                    b.Property<int>("Round");
-
-                    b.Property<int?>("Team1ID");
-
-                    b.Property<int?>("Team2ID");
-
-                    b.HasKey("ID");
-
-                    b.HasIndex("Team1ID");
-
-                    b.HasIndex("Team2ID");
-
-                    b.ToTable("Game");
                 });
 
             modelBuilder.Entity("BowlingSecretary.Models.League", b =>
@@ -145,32 +91,6 @@ namespace BowlingSecretary.Migrations
                     b.HasOne("BowlingSecretary.Models.Team", "Team")
                         .WithMany()
                         .HasForeignKey("TeamID");
-                });
-
-            modelBuilder.Entity("BowlingSecretary.Models.BowlerScore", b =>
-                {
-                    b.HasOne("BowlingSecretary.Models.Bowler", "Bowler")
-                        .WithMany()
-                        .HasForeignKey("BowlerID");
-
-                    b.HasOne("BowlingSecretary.Models.Game", "Game")
-                        .WithMany()
-                        .HasForeignKey("GameID");
-
-                    b.HasOne("BowlingSecretary.Models.Team", "Team")
-                        .WithMany()
-                        .HasForeignKey("TeamID");
-                });
-
-            modelBuilder.Entity("BowlingSecretary.Models.Game", b =>
-                {
-                    b.HasOne("BowlingSecretary.Models.Team", "Team1")
-                        .WithMany()
-                        .HasForeignKey("Team1ID");
-
-                    b.HasOne("BowlingSecretary.Models.Team", "Team2")
-                        .WithMany()
-                        .HasForeignKey("Team2ID");
                 });
 
             modelBuilder.Entity("BowlingSecretary.Models.Team", b =>

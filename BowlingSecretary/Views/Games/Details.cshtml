@@ -1,0 +1,48 @@
+﻿@model BowlingSecretary.Models.Game
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Round)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Round)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GameNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GameNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LaneSet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LaneSet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsProcessed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsProcessed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPositionRound)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsPositionRound)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

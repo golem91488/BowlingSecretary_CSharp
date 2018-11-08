@@ -1,0 +1,51 @@
+﻿@model BowlingSecretary.Models.Game
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Game</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Round)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Round)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GameNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GameNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LaneSet)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LaneSet)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsProcessed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsProcessed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IsPositionRound)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IsPositionRound)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="ID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>

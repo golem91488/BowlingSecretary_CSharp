@@ -58,10 +58,10 @@ namespace BowlingSecretary
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    template: "{controller=Leagues}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "leagueRoute",
-                    template: "Leagues/{LeagueID?}/{controller}/{action=Index}/{id?}");
+                    template: "Leagues/Details/{LeagueID?}/{controller}/{action=Index}/{id?}");
             });
         }
     }
