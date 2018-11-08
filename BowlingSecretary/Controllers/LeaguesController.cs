@@ -39,6 +39,13 @@ namespace BowlingSecretary
                 return NotFound();
             }
 
+            var teams = await _context.Team.Where(x => x.League.ID == league.ID).ToListAsync();
+            var bowlers = await _context.Bowler.Where(x => x.League.ID == league.ID).ToListAsync();
+
+            ViewData["league"] = league;
+            ViewData["teams"] = teams;
+            ViewData["bowlers"] = bowlers;
+
             return View(league);
         }
 
