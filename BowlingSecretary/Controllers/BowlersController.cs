@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BowlingSecretary.Models
 {
+    [Route("Leagues/Details/{leagueID}/[controller]/[action]")]
     public class BowlersController : Controller
     {
         private readonly BowlingSecretaryContext _context;
@@ -42,7 +43,7 @@ namespace BowlingSecretary.Models
         }
 
         // GET: Bowlers/Create
-        public IActionResult Create()
+        public IActionResult Create(int leagueID)
         {
             return View();
         }
@@ -52,10 +53,11 @@ namespace BowlingSecretary.Models
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name,CurrentAverage")] Bowler bowler)
+        public async Task<IActionResult> Create([Bind("ID,Name,CurrentAverage")] Bowler bowler, int leagueId)
         {
             if (ModelState.IsValid)
             {
+                bowler.League = _context.League.Find(leagueId);
                 _context.Add(bowler);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

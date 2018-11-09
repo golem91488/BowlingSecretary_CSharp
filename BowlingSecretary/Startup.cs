@@ -61,7 +61,7 @@ namespace BowlingSecretary
                     template: "{controller=Leagues}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "leagueRoute",
-                    template: "Leagues/Details/{LeagueID?}/{controller}/{action=Index}/{id?}");
+                    template: "Leagues/Details/{leagueID}/{controller}/{action=Index}/{id?}");
             });
         }
     }

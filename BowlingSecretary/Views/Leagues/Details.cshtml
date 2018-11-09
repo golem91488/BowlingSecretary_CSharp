@@ -3,9 +3,7 @@
 @{
     ViewData["Title"] = "Details";
 }
-@{ 
-    var bowlerHtmlHelper = ;
-}
+
 
 <h2>Details</h2>
 
@@ -45,11 +43,14 @@
         </dd>
     </dl>
 </div>
+<p>
+    <a asp-action="Create" asp-controller="Bowlers" asp-route-leagueID="@Model.ID">Create New Bowler</a>
+</p>
 <table class="table">
     <thead>
         <tr>
             <th>
-                @Html.(model => model.Name)
+                Bowler Name
             </th>
             <th>
                 Current Average
