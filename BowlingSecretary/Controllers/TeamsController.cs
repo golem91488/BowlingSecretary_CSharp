@@ -9,6 +9,7 @@ using BowlingSecretary.Models;
 
 namespace BowlingSecretary.Controllers
 {
+    [Route("Leagues/Details/{leagueID}/[controller]/[action]")]
     public class TeamsController : Controller
     {
         private readonly BowlingSecretaryContext _context;
@@ -53,10 +54,11 @@ namespace BowlingSecretary.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,Name")] Team team)
+        public async Task<IActionResult> Create([Bind("ID,Name")] Team team, int leagueID)
         {
             if (ModelState.IsValid)
             {
+                team.League = _context.League.Find(leagueID);
                 _context.Add(team);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
